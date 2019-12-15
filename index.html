@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Dashboard</title>
+  <!-- Bootstrap CSS CDN  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+  <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
+  
+  
+</head>
+
+<body>
+
+  <!-- Main Bootstrap Search -->
+  <div class="container">
+
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron" style="background-color: #49b7eb ; color:black;">
+      <h1 class="text-center">
+        <strong>
+            <span class="glyphicon glyphicon-cloud"></span>Weather Dashboard</strong>
+      </h1>
+    </div>
+
+
+    <!-- Row for Searching Cities -->
+    <div class="row" id = "search-cities-div">
+      <div class="col-sm-12">
+        <br>
+        <!-- First card is for handling the search parameters -->
+        <div class="card">
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-list-alt"></i> Search Parameters</strong>
+          </div>
+          <div class="card-body">
+
+            <!-- Here we create an HTML Form for handling the inputs-->
+            <form role="form">
+
+              <!-- Here we create the text box for capturing the search term-->
+              <div class="form-group">
+                <label for="search">Search by city:</label>
+                <input type="text" class="form-control" id="search-term">
+              </div>
+
+              
+              <!--Empty div for previously searched cities to appear-->
+              <div id = "searched-cities"></div>
+              
+
+              <!-- Here we have our final submit button -->
+              <button type="submit" class="btn btn-default" id="run-search">
+                <i class="fa fa-search"></i> Search</button>
+              <button class="btn btn-default" id="clear-all">
+                <i class="fa fa-trash"></i> Clear Results</button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+        <br>
+
+        <!-- This card will initially be made up of a card and wells for the 5 day forecast of the current city -->
+        <div class="card">
+
+          <!-- card Heading for the 5 day forecast box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i> 5 Day Forcast</strong>
+          </div>
+
+          <!-- This main card will hold the 5 day forecast -->
+          <div class="card-body" id="forecast-section">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Region -->
+    <div class="row">
+      <div class="col-sm-12">
+
+        <!-- Line Break followed by closing -->
+        <hr>
+        <h5 class="text-center">
+          <small> Enjoy your weather
+            
+          </small>
+        </h5>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- jQuery JS -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Code to the JavaScript File -->
+  <script src="javascript.js"></script>
+
+</body>
+
+</html>
