@@ -54,14 +54,27 @@ var cities = [];
     });
     
  }
- $("#run-search").on("click", function(){
+ $("#run-search").on("click", function(event){
     var city = $("#search-value").val();
+    
     cities.push(city)
     // put if statement to check to see if city is already in cities, if so dont add it
     console.log(cities)
      searchWeather(city)
  });
     
+
+ $("#search-value").keypress(function(event) {
+    var city = $("#search-value").val();
+    if (event.keyCode === 13) {
+        $("#search-value").click();
+        cities.push(city)
+        // put if statement to check to see if city is already in cities, if so dont add it
+        console.log(cities)
+         searchWeather(city)
+    }
+});
+
 
 function renderCityButtons(){
     $("#search-value").empty()
@@ -101,15 +114,15 @@ function renderCityButtons(){
 // //   // ==========================================================
   
   // .on("click") function associated with the Search Button
-  $("#run-search").on("click", function(event) {
-      if (event.keyCode === 13) {
-          $("#run-search").onclick()
-      }
-    // This line allows us to take advantage of the HTML "submit" property
-    // This way we can hit enter on the keyboard and it registers the search
-    // (in addition to clicks). Prevents the page from reloading on form submit.
-    event.preventDefault();
-  })
+//   $("#run-search").on("click", function(event) {
+//       if (event.keyCode === 13) {
+//           $("#run-search").onclick()
+//       }
+//     // This line allows us to take advantage of the HTML "submit" property
+//     // This way we can hit enter on the keyboard and it registers the search
+//     // (in addition to clicks). Prevents the page from reloading on form submit.
+//     event.preventDefault();
+//   })
   
 // //     // Empty the region associated with the forecast
 // //     clear();
