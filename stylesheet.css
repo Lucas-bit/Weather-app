@@ -9,5 +9,9 @@
   }
 
   #search-cities-div{
-    width: 30%
+    width: 60%;
    }
+
+.jumbotron {
+  margin-top: 20px;
+}

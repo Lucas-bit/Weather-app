@@ -2,23 +2,46 @@
  * pulls information from the form and build the query URL
  * @returns {string} URL for Openweather API based on form inputs
  */
-    
+
+
+
+
 var cities = [""];
  
  $("#run-search").on("click", function(){
      event.preventDefault()
     var city = $("#search-value").val();
     // queryURL is the url we'll use to query the API//
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=bc01722bf0252f19e97faf6059dd8e91";
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&APPID=bc01722bf0252f19e97faf6059dd8e91";
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(data) {
-        console.log(data)   
-    })
+      console.log(data)
+      console.log(data.city.name)
+      console.log(data.city.population)
+        
+    
+        // var weatherInfoDiv = $("<div class = 'weather'>");
+           var name = $("#display-name").html (data.city.name)
+           var temperature = $("#display-temp").html (data.main.temp_min);
+           var humid = $("#display-humidity").html (data.main.humidity);
+           var wind = $("display-windspeed").html (data.wind.speed);
+           var lat = $("display-coord-lat").html (data.coord.lat);
+           var lon = $("display-coord-lon").html (data.coord.lon);
+    
+           $("#display-name").html (name)
+           $("#display-temp").append(temperature);
+           $("#display-humidity").append(humid);
+           $("#display-windspeed").append(wind);
+           $("#display-coord-lat").append(lat);
+           $("#display-lon").append(lon);
 
-})
+    });
+    
+ });
+    
 
 // function renderCityButtons(){
 //     $("#search-value").empty()
@@ -29,14 +52,14 @@ var cities = [""];
 
 //         a.addClass=("city");
 
-//         a.attr("city-name", cities[i]);
+//         a.attr("#searched-cities", cities[i]);
 
 //         a.text(cities[i]);
 
-//         $("searched-cities").append(a)
+//         $("#searched-cities").append(a)
 //     }
 // }
-
+// renderCityButtons()
 
 
 // // ,
