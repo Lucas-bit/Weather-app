@@ -35,12 +35,15 @@ var cities = [];
            var lat = $("#display-coord-lat").html (data.coord.lat);
            var lon = $("#display-coord-lon").html (data.coord.lon);
     
-           $("#display-name").append (name)
-           $("#display-temp").append (temperature);
-           $("#display-humidity").append(humid);
-           $("#display-windspeed").append(wind);
-           $("#display-coord-lat").append(lat);
-           $("#display-lon").append(lon);
+           $("#display-name").append (name);
+           $("#display-temp").prepend ("Current Temp: ").append (temperature).append("° F");
+           $("#display-humidity").prepend ("Humidity: ").append(humid).append("%");
+           $("#display-windspeed").prepend("Wind Speed: ").append(wind).append("mph");
+           $("#display-coord-lat").prepend("Lattitude: ").append(lat).append("°");
+           $("#display-coord-lon").prepend("Longitude: ").append(lon).append("°");
+
+
+           console.log(temperature)
 
     // var iconURL = "https://openweathermap.org/img/wn/"+icon+".png"
     // var uvURL = "https://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&APPID=7874013951269e39ea832bee33a22dbe" 
@@ -54,7 +57,7 @@ var cities = [];
  $("#run-search").on("click", function(){
     var city = $("#search-value").val();
     cities.push(city)
-    //if statement to check to see if city is already in cities, if so dont add it
+    // put if statement to check to see if city is already in cities, if so dont add it
     console.log(cities)
      searchWeather(city)
  });
@@ -99,6 +102,9 @@ function renderCityButtons(){
   
   // .on("click") function associated with the Search Button
   $("#run-search").on("click", function(event) {
+      if (event.keyCode === 13) {
+          $("#run-search").onclick()
+      }
     // This line allows us to take advantage of the HTML "submit" property
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.

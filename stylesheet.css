@@ -1,6 +1,9 @@
 /* Style to fix the issue of text extending past card length */
+body{
+    font-family: 'Poppins', sans-serif;
+  }
 
-.card-body a {
+  .card-body a {
     word-break: break-all;
   }
 
@@ -15,3 +18,14 @@
 .jumbotron {
   margin-top: 20px;
 }
+
+#current-weather-data{
+    border: solid 2px #ebebeb;
+    margin-top: 20px;
+  }
+
+  #display-name{
+    font-size: 50px;
+    margin-bottom:10px;
+ 
+  }
