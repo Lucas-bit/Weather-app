@@ -55,8 +55,13 @@
 
               
               <!--Searched city buttons will get dumped here-->
-              <div id = "searched-cities"></div>
-
+             <tbody>
+                 <tr>
+                     <td>
+                        <div id = "searched-cities" style = "width: fit-content"></div>
+                     </td>   
+                </tr>
+            </tbody>  
               
 
               <!-- Here we have our final submit button -->
@@ -72,12 +77,15 @@
       <div class="col-sm-6" id = "current-weather-data">
          <!--Searched City Info-->
          <div id = "display-name"></div>
+         <img id = "display-icon">
+         <div id="display-date" ></div>
             <div class = "data-displayed">
                 <div id = "display-temp"></div>
                 <div id = "display-humidity"></div>
                 <div id = "display-windspeed"></div>
                 <div id = "display-coord-lat"></div>
                 <div id = "display-coord-lon"></div>
+                <img id = "display-UV">
             </div>
       </div>
     </div>
