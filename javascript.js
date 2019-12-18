@@ -29,7 +29,7 @@ var cities = [];
     //}
         // var weatherInfoDiv = $("<div class = 'weather'>");
            
-           var name = $("#display-name").html (data.name)
+          
            var temperature = $("#display-temp").html (main.temp);
            var humid = $("#display-humidity").html (main.humidity);
            var wind = $("#display-windspeed").html (wind.speed);
@@ -37,6 +37,7 @@ var cities = [];
            var lon = $("#display-coord-lon").html (data.coord.lon);
            var icon = data.weather[0].icon
            var iconURL = "https://openweathermap.org/img/wn/"+icon+".png"
+           var name = $("#display-name").html (data.name)
            var uvURL = "https://api.openweathermap.org/data/2.5/uvi?lat="+data.coord.lat+"&lon="+data.coord.lon+"&APPID=bc01722bf0252f19e97faf6059dd8e91" 
            
            $("#display-icon").attr("src", iconURL);
@@ -65,19 +66,21 @@ var cities = [];
         }).then(function(fiveDayResponse){
             var fiveDayIndex = fiveDayResponse
             n = 0
-            for (var i = 0; i < 5; i++){
+            for (var i = 0; i < fiveDayIndex.length; i++){
+                
                 var icon2 = fiveDayIndex.list[n].weather[0].icon
                 var fiveIconURL = "https://openweathermap.org/img/wn/"+icon2+".png"
-                var date = new Date(fiveDayIndex.list[0].dt_txt).toLocaleDateString()
-                var fiveTemp = fiveDayIndex.list[0].main.temp
-                var fiveHumidity = fiveDayIndex.list[0].main.humidity
+                var date = $("#display-fiveday-date").html (new Date(fiveDayIndex.list[0].dt_txt).toLocaleDateString())
+                var fiveTemp = $("#display-five-day-temp").html (fiveDayIndex.list[0].main.temp)
+                var fiveHumidity = $("#display-fiveday-humidity").html (fiveDayIndex.list[0].main.humidity)
 
-                $("display-fiveday-icon2").attr("src", fiveIconURL);
-                $("display-fiveday-date").text(date)
-                $("display-fiveday-temp").append(fiveTemp)
-                $("display-fiveday-humidity").append(fiveHumidity)
 
-                n=+8
+                $("#display-fiveday-date").append(date);
+                $("#display-fiveday-icon2").attr("src", fiveIconURL);
+                $("#display-fiveday-temp").append(fiveTemp);
+                $("#display-fiveday-humidity").append(fiveHumidity);
+
+                n =+8
 
      
 
