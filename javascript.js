@@ -37,9 +37,8 @@ var cities = [];
            var lon = $("#display-coord-lon").html (data.coord.lon);
            var icon = data.weather[0].icon
            var iconURL = "https://openweathermap.org/img/wn/"+icon+".png"
-           var uvURL = "https://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&APPID=7874013951269e39ea832bee33a22dbe" 
-
-           $("#display-UV").prepend("UV Index: ").attr("src", uvURL)
+           var uvURL = "https://api.openweathermap.org/data/2.5/uvi?lat="+data.coord.lat+"&lon="+data.coord.lon+"&APPID=bc01722bf0252f19e97faf6059dd8e91" 
+           
            $("#display-icon").attr("src", iconURL);
            $("#display-date").text(today);
            $("#display-temp").prepend ("Current Temp: ").append (temperature).append("° F");
@@ -49,7 +48,34 @@ var cities = [];
            $("#display-coord-lon").prepend("Longitude: ").append(lon).append("°");
 
 
-           console.log(temperature)
+           $.ajax({
+            url: uvURL,
+            method: "GET"
+        }).then(function(UVresponse){
+         var uvIndex = UVresponse.value
+         console.log(uvIndex)
+
+         $("#display-UV").text(uvIndex).prepend("UV Index: ");
+        
+         var fiveDayURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=bc01722bf0252f19e97faf6059dd8e91"
+         
+         $.ajax({
+            url: fiveDayURL,
+            method: "GET"
+        }).then(function(fiveDayResponse){
+            var fiveDayIndex = fiveDayResponse
+            n = 0
+            for (var i = 0; i < 5; i++){
+                var icon2 = fiveDayIndex.list[n].weather[0].icon
+                var fiveIconURL = "https://openweathermap.org/img/wn/"+icon2+".png"
+                var date = new Date(fiveDayIndex.list[0].dt_txt).toLocaleDateString()
+                var fiveTemp = fiveDayIndex.list[0].main.temp
+                var fiveHumidity = fiveDayIndex.list[0].main.humidity
+
+                
+
+     })
+
 
     // 
     // 

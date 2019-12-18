@@ -33,3 +33,21 @@ body{
   .city{
       width:200px;
   }
+
+  .card {
+      height: 96%
+  }
+
+  #forecast-section{
+      height: 50%;
+  }
+
+  .forecast-box-spacing{
+      height: 100%;
+      margin: 20px;
+      padding: 20px;
+  }
+
+  .forecast-box{
+      padding: 20px;
+  }
