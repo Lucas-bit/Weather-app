@@ -72,9 +72,14 @@ var cities = [];
                 var fiveTemp = fiveDayIndex.list[0].main.temp
                 var fiveHumidity = fiveDayIndex.list[0].main.humidity
 
-                
+                $("display-fiveday-icon2").attr("src", fiveIconURL);
+                $("display-fiveday-date").text(date)
+                $("display-fiveday-temp").append(fiveTemp)
+                $("display-fiveday-humidity").append(fiveHumidity)
 
-     })
+                n=+8
+
+     
 
 
     // 
@@ -83,9 +88,9 @@ var cities = [];
 
     renderCityButtons()
 
-    });
     
- }
+            }})})})}
+        
  $("#run-search").on("click", function(event){
     var city = $("#search-value").val();
     

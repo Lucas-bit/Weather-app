@@ -22,6 +22,7 @@ body{
 #current-weather-data{
     border: solid 2px #ebebeb;
     margin-top: 20px;
+    float: left;
   }
 
   #display-name{
@@ -50,4 +51,12 @@ body{
 
   .forecast-box{
       padding: 20px;
+  }
+
+  .forecast-container{
+      float: right;
+  }
+
+  .parameters-div {
+      float: left;
   }
