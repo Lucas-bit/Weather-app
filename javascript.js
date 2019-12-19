@@ -37,8 +37,8 @@ var cities = [];
            var wind = $("#display-windspeed").html (wind.speed);
            var lat = $("#display-coord-lat").html (data.coord.lat);
            var lon = $("#display-coord-lon").html (data.coord.lon);
-           var icon = data.weather[0].icon
-           var iconURL = "https://openweathermap.org/img/wn/"+icon+".png"
+           var icon1 = data.weather[0].icon
+           var iconURL = "https://openweathermap.org/img/wn/"+icon1+".png"
            var name = $("#display-name").html (data.name)
            var uvURL = "https://api.openweathermap.org/data/2.5/uvi?lat="+data.coord.lat+"&lon="+data.coord.lon+"&APPID=bc01722bf0252f19e97faf6059dd8e91" 
            
@@ -78,24 +78,24 @@ var cities = [];
                 
                 var icon2 = fiveDayIndex.list[n].weather[0].icon
                 var fiveIconURL = "https://openweathermap.org/img/wn/"+icon2+".png"
-                var date = $("#display-fiveday-date").html (new Date(fiveDayIndex.list[0].dt_txt).toLocaleDateString())
-                var fiveTemp = $("#display-fiveday-temp").html (fiveDayIndex.list[0].main.temp)
-                var fiveHumidity = $("#display-fiveday-humidity").html (fiveDayIndex.list[0].main.humidity)
+                var date = $(".display-fiveday-date").html (new Date(fiveDayIndex.list[0].dt_txt).toLocaleDateString())
+                var fiveTemp = $(".display-fiveday-temp").html (fiveDayIndex.list[0].main.temp)
+                var fiveHumidity = $(".display-fiveday-humidity").html (fiveDayIndex.list[0].main.humidity)
 
 
                 // var fiveDayInfoDiv = $("<div class = 'five-day-weather'>").text (date);
 
-                $("#display-fiveday-date").append(date);
-                $("#display-fiveday-icon2").attr("src", fiveIconURL);
-                $("#display-fiveday-temp").append(fiveTemp);
-                $("#display-fiveday-humidity").append(fiveHumidity);
+                $(".display-fiveday-date").append(date);
+                $(".display-fiveday-icon2").attr("src", fiveIconURL);
+                $(".display-fiveday-temp").prepend("Avg Temp: ").append(fiveTemp).append("° F");
+                $(".display-fiveday-humidity").prepend("Humidity: ").append(fiveHumidity).append("%");
 
                
 
                 n =+8
 
      
-
+                console.log(fiveDayIndex)
 
 
     // 
