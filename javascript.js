@@ -9,6 +9,8 @@ var today = new Date().toLocaleDateString()
 var cities = [];
  function searchWeather(city){
     event.preventDefault()
+    renderCityButtons()
+
     
 
     // queryURL is the url we'll use to query the API//
@@ -27,7 +29,7 @@ var cities = [];
         var main = data.main
         var wind = data.wind
     //}
-        // var weatherInfoDiv = $("<div class = 'weather'>");
+        //
            
           
            var temperature = $("#display-temp").html (main.temp);
@@ -40,6 +42,7 @@ var cities = [];
            var name = $("#display-name").html (data.name)
            var uvURL = "https://api.openweathermap.org/data/2.5/uvi?lat="+data.coord.lat+"&lon="+data.coord.lon+"&APPID=bc01722bf0252f19e97faf6059dd8e91" 
            
+
            $("#display-icon").attr("src", iconURL);
            $("#display-date").text(today);
            $("#display-temp").prepend ("Current Temp: ").append (temperature).append("° F");
@@ -48,6 +51,7 @@ var cities = [];
            $("#display-coord-lat").prepend("Lattitude: ").append(lat).append("°");
            $("#display-coord-lon").prepend("Longitude: ").append(lon).append("°");
 
+           //   URL AJAX
 
            $.ajax({
             url: uvURL,
@@ -58,41 +62,50 @@ var cities = [];
 
          $("#display-UV").text(uvIndex).prepend("UV Index: ");
         
-         var fiveDayURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=bc01722bf0252f19e97faf6059dd8e91"
+        //  FiveDay Forecast Ajax
+         
+         var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&APPID=bc01722bf0252f19e97faf6059dd8e91"
          
          $.ajax({
             url: fiveDayURL,
             method: "GET"
         }).then(function(fiveDayResponse){
             var fiveDayIndex = fiveDayResponse
+            console.log(fiveDayIndex)
+
             n = 0
-            for (var i = 0; i < fiveDayIndex.length; i++){
+            for (var i = 0; i < fiveDayIndex.list.length; i++){
                 
                 var icon2 = fiveDayIndex.list[n].weather[0].icon
                 var fiveIconURL = "https://openweathermap.org/img/wn/"+icon2+".png"
                 var date = $("#display-fiveday-date").html (new Date(fiveDayIndex.list[0].dt_txt).toLocaleDateString())
-                var fiveTemp = $("#display-five-day-temp").html (fiveDayIndex.list[0].main.temp)
+                var fiveTemp = $("#display-fiveday-temp").html (fiveDayIndex.list[0].main.temp)
                 var fiveHumidity = $("#display-fiveday-humidity").html (fiveDayIndex.list[0].main.humidity)
 
+
+                // var fiveDayInfoDiv = $("<div class = 'five-day-weather'>").text (date);
 
                 $("#display-fiveday-date").append(date);
                 $("#display-fiveday-icon2").attr("src", fiveIconURL);
                 $("#display-fiveday-temp").append(fiveTemp);
                 $("#display-fiveday-humidity").append(fiveHumidity);
 
+               
+
                 n =+8
 
      
 
 
-    // 
+
     // 
     // var today = new Date().toLocaleDateString()
 
-    renderCityButtons()
-
     
-            }})})})}
+
+
+            }}        
+            )})})}
         
  $("#run-search").on("click", function(event){
     var city = $("#search-value").val();
@@ -112,6 +125,7 @@ var cities = [];
         // put if statement to check to see if city is already in cities, if so dont add it
         console.log(cities)
          searchWeather(city)
+
     }
 });
 

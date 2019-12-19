@@ -60,3 +60,7 @@ body{
   .parameters-div {
       float: left;
   }
+
+  #display-date{
+      font-size: small;
+  }
