@@ -92,7 +92,7 @@ var cities = [];
 
                
 
-                n =+8
+                n +=5
 
      
                 console.log(fiveDayIndex)
