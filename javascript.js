@@ -51,7 +51,7 @@ var cities = [];
            $("#display-coord-lat").prepend("Lattitude: ").append(lat).append("°");
            $("#display-coord-lon").prepend("Longitude: ").append(lon).append("°");
 
-           //   URL AJAX
+           //   UV Ajax
 
            $.ajax({
             url: uvURL,
@@ -73,14 +73,29 @@ var cities = [];
             var fiveDayIndex = fiveDayResponse
             console.log(fiveDayIndex)
 
-            n = 0
+            //n = 0
+
+
+            let row = $('<div>').addClass('row')
+
             for (var i = 0; i < fiveDayIndex.list.length; i++){
+
+                //build a list of cards and add all of the new ones and remove the old ones at once
+
+               var newCards = $("<div>").addClass("card")
+
+
+                if (fiveDayIndex.list[i].dt_txt.indexOf("12:00:00") !== -1) {
                 
-                var icon2 = fiveDayIndex.list[n].weather[0].icon
+                    //create html elements for cards here
+
+
+
+                var icon2 = fiveDayIndex.list[i].weather[0].icon
                 var fiveIconURL = "https://openweathermap.org/img/wn/"+icon2+".png"
-                var date = $(".display-fiveday-date").html (new Date(fiveDayIndex.list[0].dt_txt).toLocaleDateString())
-                var fiveTemp = $(".display-fiveday-temp").html (fiveDayIndex.list[0].main.temp)
-                var fiveHumidity = $(".display-fiveday-humidity").html (fiveDayIndex.list[0].main.humidity)
+                var date = $(".display-fiveday-date").html (new Date(fiveDayIndex.list[i].dt_txt).toLocaleDateString())
+                var fiveTemp = $(".display-fiveday-temp").html (fiveDayIndex.list[i].main.temp)
+                var fiveHumidity = $(".display-fiveday-humidity").html (fiveDayIndex.list[i].main.humidity)
 
 
                 // var fiveDayInfoDiv = $("<div class = 'five-day-weather'>").text (date);
@@ -92,19 +107,14 @@ var cities = [];
 
                
 
-                n +=5
-
-     
-                console.log(fiveDayIndex)
-
-
-    // 
-    // var today = new Date().toLocaleDateString()
+                //n +=8
 
     
 
 
-            }}        
+         }
+         console.log(i)
+        }}        
             )})})}
         
  $("#run-search").on("click", function(event){
@@ -155,42 +165,6 @@ function renderCityButtons(){
 }
 
 
-// // ,
-   
+
   
 
-// //   // Function to empty out the forecast
-// //   function clear() {
-// //     $("#forecast-section").empty();
-// //   }
-  
-// //   // CLICK HANDLERS
-// //   // ==========================================================
-  
-  // .on("click") function associated with the Search Button
-//   $("#run-search").on("click", function(event) {
-//       if (event.keyCode === 13) {
-//           $("#run-search").onclick()
-//       }
-//     // This line allows us to take advantage of the HTML "submit" property
-//     // This way we can hit enter on the keyboard and it registers the search
-//     // (in addition to clicks). Prevents the page from reloading on form submit.
-//     event.preventDefault();
-//   })
-  
-// //     // Empty the region associated with the forecast
-// //     clear();
-  
-// //     // Build the query URL for the ajax request to the OpenWeather API
-    
-  
-// //     // Make the AJAX request to the API - GETs the JSON data at the queryURL.
-// //     // The data then gets passed as an argument to the updatePage function
-//     $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//     }).then(updatePage);
-//   ;
-  
-// //   //  .on("click") function associated with the clear button
-// //   $("#clear-all").on("click", clear);
