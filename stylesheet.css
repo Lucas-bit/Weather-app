@@ -68,3 +68,7 @@ body{
   .forecast-box{
     background-color: #49b7eb
   }
+
+  .background-image{
+    background-image: url("assets/weather-pic.png");
+  }
