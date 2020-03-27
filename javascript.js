@@ -17,10 +17,12 @@ $(document).ready(function() {
       $(".history").append(li);
     }
   
+
+    
     function searchWeather(searchValue) {
       $.ajax({
         type: "GET",
-        url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=7ba67ac190f85fdba2e2dc6b9d32e93c&units=imperial",
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=bc01722bf0252f19e97faf6059dd8e91&units=imperial",
         dataType: "json",
         success: function(data) {
           // create history link for this search
