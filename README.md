@@ -1,6 +1,6 @@
 # Weather-app
 
-![](Weather-App20%(2).png)
+![](Weather-App%20(2).png)
 
 A real time weather dashboard application with search functionality to find current weather conditions and the future weather outlook for multiple cities.
 
