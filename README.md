@@ -9,10 +9,14 @@ so that I can plan a trip accordingly
 
 
 # Getting Started
-Copy the repository and git clone into the folder of your choice. 
+Copy the repository by downloading the zip file or git cloning into the folder of your choice as pictured below.
+
+![](weather-app-zip-photo.png)
+
+
 Deploy through Github
 
-Use the OpenWeather API to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions.
+Use the OpenWeather API (https://openweathermap.org/api) to retrieve weather data for cities. The following documentation includes a section called "How to start" that will provide basic setup and usage instructions (https://openweathermap.org/appid).
 
 
 Use AJAX to hook into the API to retrieve data in JSON format.
