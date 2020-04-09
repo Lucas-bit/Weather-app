@@ -1,5 +1,7 @@
 # Weather-app
 
+![](Weather-App20%(2).png)
+
 A real time weather dashboard application with search functionality to find current weather conditions and the future weather outlook for multiple cities.
 
 # User Story 
@@ -20,6 +22,10 @@ Use the OpenWeather API (https://openweathermap.org/api) to retrieve weather dat
 
 
 Use AJAX to hook into the API to retrieve data in JSON format.
+
+Then open the index.html file in your default browser by right clicking on the index.html file and selecting 'Open in Default Broswer' as pictured below.
+
+![](weather-app-open-browser.png)
 
 
 The app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
