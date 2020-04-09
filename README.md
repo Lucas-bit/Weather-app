@@ -21,7 +21,7 @@ Use the OpenWeather API (https://openweathermap.org/api) to retrieve weather dat
 
 Use AJAX to hook into the API to retrieve data in JSON format.
 
-Then open the index.html file in your default browser by right clicking on the index.html file and selecting 'Open in Default Broswer' as pictured below.
+Then open the application in your browser by right clicking on the index.html file in your code editor and selecting 'Open in Default Broswer' as pictured below.
 
 ![](weather-app-open-browser.png)
 
