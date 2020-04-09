@@ -16,8 +16,6 @@ Copy the repository by downloading the zip file or git cloning into the folder o
 ![](weather-app-zip-photo.png)
 
 
-Deploy through Github
-
 Use the OpenWeather API (https://openweathermap.org/api) to retrieve weather data for cities. The following documentation includes a section called "How to start" that will provide basic setup and usage instructions (https://openweathermap.org/appid).
 
 
