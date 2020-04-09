@@ -67,6 +67,8 @@ Temperature
 Humidity
 
 
+# Authors
+Lucas Gonzalez lucasberatudgonzalez@gmail.com https://github.com/Lucas-bit https://lucas-bit.github.io/Nice-Portfolio/
 
 
 
